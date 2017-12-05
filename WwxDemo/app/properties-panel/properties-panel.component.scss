@@ -1,0 +1,75 @@
+﻿#left-panel {
+    position: fixed;
+    top: 0;
+    left: 34px;
+    height: 100%;
+    width: 225px;
+    background: rgba(37,37,38,0.5);
+    color: #fff;
+    font-size: 0.9em;
+
+    select, input[type=text], input[type=file] {
+        border: none;
+        width: calc(60% - 5px);
+    }
+
+    .config-row {
+        border-bottom: 1px solid #2d2d30;
+        padding: 5px;
+        position: relative;
+
+        &.open-title {
+            text-transform: lowercase;
+            background: #343434;
+            text-align: left;
+            position: relative;
+
+            .config-src-wrapper {
+                position: absolute;
+                right: 5px;
+                top: 5px;
+
+                select {
+                    width: auto;
+                }
+            }
+        }
+
+        &.open-row {
+            cursor: pointer;
+        }
+
+        input[type=text] {
+            padding: 0;
+            padding-left: 5px;
+        }
+
+        .save-config-btn {
+            background: #1d9fd9;
+            border: none;
+            color: #fff;
+            border-radius: 4px;
+            padding: 4px 10px;
+            cursor: pointer;
+        }
+
+        .open-icon {
+            position: absolute;
+            top: 7px;
+            right: 5px;
+        }
+
+        .measurement {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            color: #000;
+        }
+
+        .config-label {
+            float: left;
+            width: 40%;
+            border-right: #2d2d30;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+﻿#powered-by {
+  position: fixed;
+  bottom: 0;
+  right: -30px;
+  color: #fff;
+  z-index: 5; }
+  #powered-by .powered-by-wrapper {
+    display: inline-block;
+    position: relative; }
+    #powered-by .powered-by-wrapper .powered-by-label {
+      position: absolute;
+      top: -18px;
+      left: -70px;
+      width: 100px;
+      font-size: 0.8em; }
+

@@ -1,0 +1,18 @@
+﻿[
+  {
+    "outputFile": "app/toolbar/toolbar.component.css",
+    "inputFile": "app/toolbar/toolbar.component.scss"
+  },
+  {
+    "outputFile": "app/powered-by/powered-by.component.css",
+    "inputFile": "app/powered-by/powered-by.component.scss"
+  },
+  {
+    "outputFile": "app/main/main.component.css",
+    "inputFile": "app/main/main.component.scss"
+  },
+  {
+    "outputFile": "app/properties-panel/properties-panel.component.css",
+    "inputFile": "app/properties-panel/properties-panel.component.scss"
+  }
+]

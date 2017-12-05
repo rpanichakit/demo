@@ -1,0 +1,382 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\Documents\Publish\dots.wirelesswerx.com</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="app/app.component.js">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/app.component.js.map">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/app.js">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/app.js.map">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/core/configurations.service.js">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/core/configurations.service.js.map">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/fonts/fontawesome-webfont.eot">
+      <publishTime>07/17/2017 10:19:23</publishTime>
+    </File>
+    <File Include="app/fonts/fontawesome-webfont.svg">
+      <publishTime>07/17/2017 10:19:32</publishTime>
+    </File>
+    <File Include="app/fonts/fontawesome-webfont.ttf">
+      <publishTime>07/17/2017 10:17:40</publishTime>
+    </File>
+    <File Include="app/fonts/fontawesome-webfont.woff">
+      <publishTime>07/17/2017 10:17:44</publishTime>
+    </File>
+    <File Include="app/fonts/fontawesome-webfont.woff2">
+      <publishTime>07/17/2017 10:17:48</publishTime>
+    </File>
+    <File Include="app/fonts/FontAwesome.otf">
+      <publishTime>07/17/2017 10:19:16</publishTime>
+    </File>
+    <File Include="app/html-container/html-container.component.js">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/html-container/html-container.component.js.map">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/html-container/zone.component.js">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/html-container/zone.component.js.map">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/live-positions/live-positions.component.html">
+      <publishTime>10/25/2017 11:08:22</publishTime>
+    </File>
+    <File Include="app/live-positions/live-positions.component.js">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/live-positions/live-positions.component.js.map">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/live-positions/live-positions.service.js">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/live-positions/live-positions.service.js.map">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/main/main.component.css">
+      <publishTime>10/12/2017 14:27:34</publishTime>
+    </File>
+    <File Include="app/main/main.component.js">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/main/main.component.js.map">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/main/main.component.min.css">
+      <publishTime>10/12/2017 14:27:34</publishTime>
+    </File>
+    <File Include="app/main/main.component.scss">
+      <publishTime>10/12/2017 14:23:18</publishTime>
+    </File>
+    <File Include="app/powered-by/powered-by.component.css">
+      <publishTime>10/12/2017 14:12:14</publishTime>
+    </File>
+    <File Include="app/powered-by/powered-by.component.min.css">
+      <publishTime>10/12/2017 14:12:14</publishTime>
+    </File>
+    <File Include="app/powered-by/powered-by.component.scss">
+      <publishTime>10/12/2017 13:42:21</publishTime>
+    </File>
+    <File Include="app/powered-by/powered-by.controller.js">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/powered-by/powered-by.controller.js.map">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/properties-panel/properties-panel.component.css">
+      <publishTime>10/12/2017 15:47:08</publishTime>
+    </File>
+    <File Include="app/properties-panel/properties-panel.component.js">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/properties-panel/properties-panel.component.js.map">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/properties-panel/properties-panel.component.min.css">
+      <publishTime>10/12/2017 15:47:08</publishTime>
+    </File>
+    <File Include="app/properties-panel/properties-panel.component.scss">
+      <publishTime>10/12/2017 15:47:07</publishTime>
+    </File>
+    <File Include="app/properties-panel/settings.component.js">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/properties-panel/settings.component.js.map">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/styles/app.css">
+      <publishTime>10/18/2017 13:35:14</publishTime>
+    </File>
+    <File Include="app/styles/font-awesome.css.map">
+      <publishTime>07/17/2017 10:17:13</publishTime>
+    </File>
+    <File Include="app/styles/font-awesome.min.css">
+      <publishTime>07/17/2017 10:16:45</publishTime>
+    </File>
+    <File Include="app/styles/rotate.png">
+      <publishTime>07/14/2017 10:28:05</publishTime>
+    </File>
+    <File Include="app/styles/rotate2.jpg">
+      <publishTime>07/14/2017 10:36:13</publishTime>
+    </File>
+    <File Include="app/styles/rotate2.png">
+      <publishTime>07/14/2017 10:37:29</publishTime>
+    </File>
+    <File Include="app/toolbar/toolbar-item.component.js">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/toolbar/toolbar-item.component.js.map">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/toolbar/toolbar.component.css">
+      <publishTime>10/12/2017 14:30:51</publishTime>
+    </File>
+    <File Include="app/toolbar/toolbar.component.js">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/toolbar/toolbar.component.js.map">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/toolbar/toolbar.component.min.css">
+      <publishTime>10/12/2017 14:30:51</publishTime>
+    </File>
+    <File Include="app/toolbar/toolbar.component.scss">
+      <publishTime>10/12/2017 14:30:51</publishTime>
+    </File>
+    <File Include="app/toolbar/toolbar.model.js">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/toolbar/toolbar.model.js.map">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/viewer/viewer.component.js">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="app/viewer/viewer.component.js.map">
+      <publishTime>10/25/2017 11:12:41</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>02/22/2013 08:43:40</publishTime>
+    </File>
+    <File Include="bin/EPPlus.dll">
+      <publishTime>07/14/2016 15:57:38</publishTime>
+    </File>
+    <File Include="bin/Kentor.AuthServices.dll">
+      <publishTime>06/08/2016 14:57:42</publishTime>
+    </File>
+    <File Include="bin/Kentor.AuthServices.HttpModule.dll">
+      <publishTime>06/08/2016 14:57:50</publishTime>
+    </File>
+    <File Include="bin/Kentor.AuthServices.Mvc.dll">
+      <publishTime>06/08/2016 14:57:46</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>06/15/2015 02:06:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/25/2012 11:48:56</publishTime>
+    </File>
+    <File Include="bin/MySql.Data.dll">
+      <publishTime>06/17/2016 18:29:10</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>08/03/2014 20:33:56</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/18/2015 20:19:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/18/2015 20:19:46</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>01/28/2015 04:02:42</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>01/28/2015 04:02:54</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>01/28/2015 04:03:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>01/28/2015 04:02:18</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>02/11/2014 15:26:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>01/28/2015 04:02:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>01/28/2015 04:04:30</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>07/17/2013 17:03:52</publishTime>
+    </File>
+    <File Include="bin/Wwx.Core.dll">
+      <publishTime>09/28/2017 15:52:58</publishTime>
+    </File>
+    <File Include="bin/Wwx.Data.SqlClient.dll">
+      <publishTime>09/28/2017 14:49:32</publishTime>
+    </File>
+    <File Include="bin/WwxDemo.dll">
+      <publishTime>10/25/2017 11:12:45</publishTime>
+    </File>
+    <File Include="bin/x64/SQLite.Interop.dll">
+      <publishTime>06/10/2017 20:54:56</publishTime>
+    </File>
+    <File Include="bin/x86/SQLite.Interop.dll">
+      <publishTime>06/10/2017 20:54:56</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>09/29/2017 09:08:33</publishTime>
+    </File>
+    <File Include="images/arrowKeys.png">
+      <publishTime>10/18/2017 13:02:35</publishTime>
+    </File>
+    <File Include="images/chair.svg">
+      <publishTime>07/20/2017 16:03:52</publishTime>
+    </File>
+    <File Include="images/denver_map.jpg">
+      <publishTime>07/14/2017 09:21:17</publishTime>
+    </File>
+    <File Include="images/iinside_map.jpg">
+      <publishTime>07/14/2017 13:12:53</publishTime>
+    </File>
+    <File Include="images/iinside_map2.jpg">
+      <publishTime>07/14/2017 14:11:05</publishTime>
+    </File>
+    <File Include="images/ruler.png">
+      <publishTime>07/24/2017 12:44:39</publishTime>
+    </File>
+    <File Include="images/sensor.png">
+      <publishTime>07/14/2017 09:41:00</publishTime>
+    </File>
+    <File Include="images/sensor_small.png">
+      <publishTime>10/03/2017 10:24:29</publishTime>
+    </File>
+    <File Include="index.html">
+      <publishTime>10/03/2017 16:22:11</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>10/03/2017 14:51:26</publishTime>
+    </File>
+    <File Include="rpanichakit-sp.pfx">
+      <publishTime>08/03/2017 14:44:04</publishTime>
+    </File>
+    <File Include="scripts/libs/angular-touch.min.js">
+      <publishTime>10/17/2017 14:25:31</publishTime>
+    </File>
+    <File Include="scripts/libs/angular-websocket.js">
+      <publishTime>10/10/2017 14:08:00</publishTime>
+    </File>
+    <File Include="scripts/libs/angular-websocket.min.js">
+      <publishTime>07/13/2017 14:02:04</publishTime>
+    </File>
+    <File Include="scripts/libs/angular.min.js">
+      <publishTime>07/13/2017 14:01:29</publishTime>
+    </File>
+    <File Include="scripts/libs/d3.min.js">
+      <publishTime>10/04/2017 12:54:51</publishTime>
+    </File>
+    <File Include="scripts/libs/jquery-ui-touch-punch.min.js">
+      <publishTime>07/20/2017 08:09:33</publishTime>
+    </File>
+    <File Include="scripts/libs/jquery-ui.min.js">
+      <publishTime>07/14/2017 09:53:46</publishTime>
+    </File>
+    <File Include="scripts/libs/jquery.min.js">
+      <publishTime>07/13/2017 14:07:35</publishTime>
+    </File>
+    <File Include="scripts/libs/jquery.ui.rotatable.js">
+      <publishTime>07/14/2017 10:33:25</publishTime>
+    </File>
+    <File Include="scripts/libs/jquery.ui.touch-punch.min.js">
+      <publishTime>10/17/2017 14:34:01</publishTime>
+    </File>
+    <File Include="Styles/Login.css">
+      <publishTime>10/03/2017 09:00:44</publishTime>
+    </File>
+    <File Include="token-signing.cer">
+      <publishTime>08/03/2017 14:44:04</publishTime>
+    </File>
+    <File Include="Views/App/Index.cshtml">
+      <publishTime>10/17/2017 14:34:16</publishTime>
+    </File>
+    <File Include="Views/Login/Index.cshtml">
+      <publishTime>10/10/2017 14:09:32</publishTime>
+    </File>
+    <File Include="Views/Main/Index.cshtml">
+      <publishTime>10/12/2017 14:15:50</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>10/03/2017 08:50:14</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>10/18/2017 15:04:06</publishTime>
+    </File>
+    <File Include="wwx-demo.appcache">
+      <publishTime>07/24/2017 14:36:21</publishTime>
+    </File>
+    <File Include="wwxDemo.appcache">
+      <publishTime>07/19/2017 09:50:58</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

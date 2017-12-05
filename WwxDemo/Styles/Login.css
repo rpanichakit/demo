@@ -1,0 +1,127 @@
+﻿html, body{
+    height: 100%;
+    margin: 0;
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.btn-lg {
+     padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+    text-decoration: none;
+}
+
+.login-body {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.login-body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    color: #333;
+    background-color: #fff;
+    background: url(/images/bg-airport-people-walking2.jpg) no-repeat 50% fixed;
+    background-position: 50%;
+    background-size: cover;
+}
+
+    .login-body .login-header {
+        position: fixed;
+        top: 15px;
+        left: 15px;
+    }
+
+    .login-body .form-sign-container {
+        width: 400px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%);
+    }
+
+        .login-body .form-sign-container .form-signin-wrapper {
+            background-color: rgba(0,0,0,.7);
+            box-shadow: 0 2px 2px hsla(0,0%,50%,.2);
+            border-radius: 4px;
+        }
+
+            .login-body .form-sign-container .form-signin-wrapper .form-signin {
+                max-width: 330px;
+                padding: 20px;
+                margin: 0 auto;
+            }
+
+                .login-body .form-sign-container .form-signin-wrapper .form-signin .login-title {
+                    color: #c4c4c4;
+                    font-size: 2.4em;
+                    font-weight: 400;
+                    padding-bottom: 30px;
+                }
+
+                    .login-body .form-sign-container .form-signin-wrapper .form-signin .login-title .fa-lock {
+                        padding-right: 10px;
+                    }
+
+                .login-body .form-sign-container .form-signin-wrapper .form-signin .form-group-container {
+                    margin-bottom: 55px;
+                }
+
+                .login-body .form-sign-container .form-signin-wrapper .form-signin .form-control {
+                    position: relative;
+                    font-size: 16px;
+                    height: auto;
+                    padding: 10px;
+                    box-sizing: border-box;
+                }
+
+    .login-body .login-footer {
+        color: #fff;
+        position: fixed;
+        bottom: 15px;
+        left: 15px;
+        font-size: 1.2em;
+    }

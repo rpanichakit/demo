@@ -1,0 +1,288 @@
+﻿<div id="canvas-container" ng-mousedown="$ctrl.canvasMouseDown($event)" ng-mouseup="$ctrl.canvasMouseUp($event)" ng-click="$ctrl.canvasClicked($event)" ng-mousemove="$ctrl.canvasMouseMove($event)" ng-style="{transform:'scale(' + $ctrl.zoomScale + ')','transform-origin':$ctrl.zoomOrigin}">
+        <img id="map"
+             ng-show="$ctrl.mapPath"
+             ng-src="{{$ctrl.mapPath}}"
+             ng-dblclick="$ctrl.clearMap()"
+             ng-style="{top:$ctrl.mapPosition.top,left:$ctrl.mapPosition.left}"
+             ng-class="{'auto-scale':$ctrl.autoScale}" />
+
+        <div id="new-boundary" ng-if="$ctrl.newBoundary" ng-style="{top:$ctrl.newBoundary.top,left:$ctrl.newBoundary.left,width:$ctrl.newBoundary.width+'px',height:$ctrl.newBoundary.height+'px'}">
+            <div class="boundary-labels" ng-style="{height:$ctrl.newBoundary.height+'px'}">
+                <div class="boundary-width-label">{{$ctrl.boundwidthMeasurement}} {{$ctrl.unit}}</div>
+                <div class="boundary-height-label">{{$ctrl.boundheightMeasurement}} {{$ctrl.unit}}</div>
+            </div>
+        </div>
+        <div class="room-boundary"
+             ng-show="$ctrl.boundary && ($ctrl.mode === 2 || !$ctrl.mapPath)"
+             ng-dblclick="$ctrl.clearBoundary()"
+             ng-style="{top:$ctrl.boundary.top,left:$ctrl.boundary.left,width:$ctrl.boundary.width+'px',height:$ctrl.boundary.height+'px'}">
+            <div class="boundary-labels" ng-show="$ctrl.mode !== 0 && $ctrl.mode !== 14" ng-style="{height:$ctrl.boundary.height+'px'}">
+                <div class="boundary-width-label">{{$ctrl.boundwidthMeasurement}} {{$ctrl.unit}}</div>
+                <div class="boundary-height-label">{{$ctrl.boundheightMeasurement}} {{$ctrl.unit}}</div>
+                <div class="rect-handles {{handle.class}}" ng-show="$ctrl.mode === 2" ng-style="{top:handle.top+'px',left:handle.left+'px'}" ng-repeat="handle in $ctrl.boundary.handles" ng-mousedown="$ctrl.boundaryHandleMouseDown(handle,$event)" ></div>
+            </div>
+        </div>
+        <div class="door-wrapper"
+             ng-repeat="d in $ctrl.doors"
+             ng-style="{top:d.top,left:d.left}"
+             ng-click="$ctrl.stopClick($event)"
+             ng-dblclick="$ctrl.deleteDoor($index,$event)">
+            <div class="door" ng-class="{'hide-rotate':$ctrl.mode !== 5}" ng-style={transform:d.transform}>
+                <div class="door-item" ng-style="{'border-bottom-left-radius':d.width+'px',width:d.width+'px',height:d.width+'px'}"></div>
+            </div>
+        </div>
+        <div id="new-rect"
+             ng-show="$ctrl.newRectangle"
+             ng-style="{top:$ctrl.newRectangle.top,left:$ctrl.newRectangle.left,width:$ctrl.newRectangle.width,height:$ctrl.newRectangle.height}">
+            <div class="boundary-labels" ng-show="$ctrl.mode !== 0 && $ctrl.mode !== 14" ng-style="{height:$ctrl.newRectangle.height+'px'}">
+                <div class="boundary-width-label">{{$ctrl.newRectangle.widthMeasurement}} {{$ctrl.unit}}</div>
+                <div class="boundary-height-label">{{$ctrl.newRectangle.heightMeasurement}} {{$ctrl.unit}}</div>
+            </div>
+        </div>
+        <div class="rect" ng-repeat="r in $ctrl.rectangles"
+             ng-class="{selected:r.selected}"
+             ng-style="{top:r.top,left:r.left,width:r.width,height:r.height}"
+             ng-dblclick="$ctrl.deleteRectangle($index,$event)"
+             ng-click="$ctrl.stopClick($event)">
+            <div class="boundary-labels" ng-style="{height:r.height+'px'}">
+                <div ng-show="$ctrl.mode !== 0 && $ctrl.mode !== 14 || r.selected">
+                    <div class="boundary-width-label">{{r.widthMeasurement}} {{$ctrl.unit}}</div>
+                    <div class="boundary-height-label">{{r.heightMeasurement}} {{$ctrl.unit}}</div>
+                    <!--<div ng-show="r.selected" class="rect-handles {{handle.class}}" ng-style="{top:handle.top+'px',left:handle.left+'px'}" ng-repeat="handle in r.handles" ng-mousedown="$ctrl.handleMouseDown(handle,$event)" ng-mouseup="$ctrl.handleMouseUp(handle,$event)" ng-mousemove="$ctrl.handleMouseMove(handle, $event)"></div>-->
+                </div>
+            </div>
+        </div>
+        <!--<div ng-repeat="r in $ctrl.rectangles">
+            <div ng-show="r.selected" ng-click="onRectHandleClick($event)" class="rect-handles {{handle.class}}" ng-style="{top:handle.top+'px',left:handle.left+'px'}" ng-repeat="handle in r.handles"></div>
+        </div>-->
+        <div class="chair-wrapper" ng-repeat="c in $ctrl.chairs"
+             ng-style="{top:c.top,left:c.left,width:c.width+'px',height:d.width+'px'}"
+             ng-click="$ctrl.stopClick($event)"
+             ng-dblclick="$ctrl.deleteChair($index,$event)">
+            <div class="chair" ng-class="{'hide-rotate':$ctrl.mode !== 3}">
+                <img src="images/chair.svg" style="width:100%;">
+            </div>
+        </div>
+
+        <div class="html-pos" ng-repeat="pos in $ctrl.positions track by pos.deviceId" ng-style="{top:pos.top,left:pos.left,width:pos.width,height:pos.height,border:pos.border,'border-radius':pos.borderRadius,'box-shadow':pos.glow}">
+
+        </div>
+        <div id="new-rectangle"
+             ng-show="$ctrl.newZone"
+             ng-class="{dark:$ctrl.newZone.style === 'dark'}"
+             ng-style="{top:$ctrl.newZone.top,left:$ctrl.newZone.left,width:$ctrl.newZone.width,height:$ctrl.newZone.height}">
+            <div class="boundary-labels" ng-show="$ctrl.mode !== 0" ng-style="{height:$ctrl.newZone.height+'px'}">
+                <div class="boundary-width-label">{{$ctrl.newZone.widthMeasurement}} {{$ctrl.unit}}</div>
+                <div class="boundary-height-label">{{$ctrl.newZone.heightMeasurement}} {{$ctrl.unit}}</div>
+            </div>
+        </div>
+        <div class="rectangle" ng-repeat="r in $ctrl.zones"
+             ng-show="$ctrl.showZones || $ctrl.mode === 4"
+             ng-class="{selected:r.selected, occupied:r.occupied, dark:r.style === 'dark'}"
+             ng-style="{top:r.top,left:r.left,width:r.width,height:r.height}"
+             ng-dblclick="$ctrl.deleteZone($index,$event)"
+             ng-click="$ctrl.selectZone($event,r)"
+             ng-mousedown="$ctrl.mouseDownZone($event,r)">
+            <div class="boundary-labels" ng-style="{height:r.height+'px'}">
+                <div ng-show="($ctrl.mode !== 0 && $ctrl.mode !== 14) || r.selected">
+                    <div class="boundary-width-label">{{r.widthMeasurement}} {{$ctrl.unit}}</div>
+                    <div class="boundary-height-label">{{r.heightMeasurement}} {{$ctrl.unit}}</div>
+                    <div ng-show="r.selected" class="rect-handles {{handle.class}}" ng-style="{top:handle.top+'px',left:handle.left+'px'}" ng-repeat="handle in r.handles" ng-mousedown="$ctrl.handleMouseDown(handle,$event)" ></div>
+                </div>
+                <div class="zone-name-label" ng-class="{dark: r.style === 'dark'}">{{r.name}}</div>
+                <!--<div class="pop-label" ng-class="{dark: r.style === 'dark'}">pop: {{r.population}}</div>-->
+            </div>
+        </div>
+        <div id="ruler" ng-if="$ctrl.ruler && $ctrl.mode === 8" ng-style="{top:$ctrl.ruler.top,left:$ctrl.ruler.left,width:$ctrl.ruler.width+'px',transform:$ctrl.ruler.transform}">
+            <div id="ruler-label">
+                <div id="ruler-label-text">
+                    <div style="position:relative;"><input type="text" ng-model="$ctrl.ruler.measurement" ng-model-options="{debounce:500}" ng-change="$ctrl.onRulerMeasurementChanged()" /> <div class="ruler-unit">{{$ctrl.unit}}</div></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="sensor" ng-show="$ctrl.mode != 0 && $ctrl.mode != 14" ng-style="{top:$ctrl.sensorPosition.top,left:$ctrl.sensorPosition.left}" ng-mousedown="$ctrl.sensorMouseDown($event)" ng-click="$ctrl.sensorClicked($event)">
+            <div id="sensor-rays" style="position:relative;">
+                <div ng-show="$ctrl.mode == 1 || $ctrl.mode == 2">
+                    <div ng-if="$ctrl.northRay" class="ray-label" ng-style="{top:$ctrl.northRay.measurementTop,left:$ctrl.northRay.left+10}">{{$ctrl.northRay.measurement}} {{$ctrl.unit}}</div>
+                    <div ng-if="$ctrl.northRay" class="sensor-ray" ng-style="{top:$ctrl.northRay.top,left:$ctrl.northRay.left,width:$ctrl.northRay.width+'px',height:$ctrl.northRay.height+'px'}"></div>
+                    <div ng-if="$ctrl.westRay" class="ray-label" ng-style="{top:$ctrl.westRay.top-20,left:$ctrl.westRay.measurementLeft}">{{$ctrl.westRay.measurement}} {{$ctrl.unit}}</div>
+                    <div ng-if="$ctrl.westRay" class="sensor-ray" ng-style="{top:$ctrl.westRay.top,left:$ctrl.westRay.left,width:$ctrl.westRay.width+'px',height:$ctrl.westRay.height+'px'}"></div>
+                    <div ng-if="$ctrl.southRay" class="ray-label" ng-style="{top:$ctrl.southRay.measurementTop,left:$ctrl.southRay.measurementLeft}">{{$ctrl.southRay.measurement}} {{$ctrl.unit}}</div>
+                    <div ng-if="$ctrl.southRay" class="sensor-ray" ng-style="{top:$ctrl.southRay.top,left:$ctrl.southRay.left,width:$ctrl.southRay.width+'px',height:$ctrl.southRay.height+'px'}"></div>
+                    <div ng-if="$ctrl.eastRay" class="ray-label" ng-style="{top:$ctrl.eastRay.measurementTop,left:$ctrl.eastRay.measurementLeft}">{{$ctrl.eastRay.measurement}} {{$ctrl.unit}}</div>
+                    <div ng-if="$ctrl.eastRay" class="sensor-ray" ng-style="{top:$ctrl.eastRay.top,left:$ctrl.eastRay.left,width:$ctrl.eastRay.width+'px',height:$ctrl.eastRay.height+'px'}"></div>
+                </div>
+                <div id="sensor-target"></div>
+            </div>
+            <div id="rotate" ng-if="$ctrl.hasSensorRotate" ng-style="{transform:$ctrl.sensorTransform}">
+                <img ng-src="images/sensor_small.png" style="width:30px;height:30px;" />
+            </div>
+        </div>
+        <canvas id="dots-canvas" width="{{$ctrl.canvasWidth}}" height="{{$ctrl.canvasHeight}}" style="position:absolute;top:0;left:0;"></canvas>
+</div>
+
+<div id="svg-wrapper" style="position: fixed; top: 0; right: 0;"></div>
+<div class="dots-label-container" ng-repeat="dot in $ctrl.positionOutputs" ng-if="dot.name" ng-style="{top:$ctrl.getDotLabelPosition(dot).top,left:$ctrl.getDotLabelPosition(dot).left}">
+    <div style="position:relative;">
+        <div class="dots-label">{{dot.name}}</div>
+    </div>
+</div>
+
+
+
+<div id="menu-wrapper" ng-show="$ctrl.hideMenu">
+    <i class="fa fa-bars" aria-hidden="true" ng-click="$ctrl.showToolbar()"></i>
+</div>
+<div id="left-bar" ng-show="!$ctrl.hideMenu">
+    <div title="configuration" class="label-wrapper" ng-class="{selected:$ctrl.mode == 1}" ng-click="$ctrl.selectConfigMode()">
+        <div class="tab-label"><i class="fa fa-wrench" aria-hidden="true"></i></div>
+    </div>
+    <div title="floorplan" class="label-wrapper" ng-class="{selected:$ctrl.mode == 15}" ng-click="$ctrl.selectMode(15)">
+        <div class="tab-label"><i class="fa fa-map" aria-hidden="true"></i></div>
+    </div>
+    <div ng-if="$ctrl.mapPath" title="ruler" class="label-wrapper" ng-class="{selected:$ctrl.mode == 8}" ng-click="$ctrl.selectRulerMode()">
+        <div class="tab-label"><img src="/images/ruler.png" /></div>
+    </div>
+    <div title="setup room boundary" class="label-wrapper" ng-class="{selected:$ctrl.mode == 2}" ng-click="$ctrl.selectBoundaryMode()">
+        <div class="tab-label"><div id="boundary-icon"></div></div>
+    </div>
+    <div title="setup chairs" class="label-wrapper" ng-class="{selected:$ctrl.mode == 3}" ng-click="$ctrl.selectChairsMode()">
+        <div class="tab-label"><img src="images/chair.svg" style="width:18px;height:23px;" /></div>
+    </div>
+    <div title="draw zones" class="label-wrapper" ng-class="{selected:$ctrl.mode == 4}" ng-click="$ctrl.selectZoneMode()">
+        <div class="tab-label"><div style="padding:0 5px;background:#151515;border:1px solid #fff;color:#fff;">z</div></div>
+    </div>
+    <div title="draw rectangles" class="label-wrapper" ng-class="{selected:$ctrl.mode == 9}" ng-click="$ctrl.selectRectMode()">
+        <div class="tab-label"><i class="fa fa-square" aria-hidden="true"></i></div>
+    </div>
+    <div title="setup doors" class="label-wrapper" ng-class="{selected:$ctrl.mode == 5}" ng-click="$ctrl.selectDoorMode()">
+        <div class="tab-label"><div id="door-icon"></div></div>
+    </div>
+    <div title="clear workspace" class="label-wrapper" ng-click="$ctrl.clearScreen()">
+        <div class="tab-label"><i class="fa fa-trash-o" aria-hidden="true"></i></div>
+    </div>
+    <div title="save configuration" class="label-wrapper" ng-class="{selected:$ctrl.mode == 6}" ng-click="$ctrl.selectSaveMode()">
+        <div class="tab-label"><i class="fa fa-floppy-o" aria-hidden="true"></i></div>
+    </div>
+    <div title="load configuration" class="label-wrapper" ng-class="{selected:$ctrl.mode == 7}" ng-click="$ctrl.selectOpenMode()">
+        <div class="tab-label"><i class="fa fa-folder-open" aria-hidden="true"></i></div>
+    </div>
+   
+    <div title="export configuration" class="label-wrapper" ng-click="$ctrl.export()">
+        <div class="tab-label"><i class="fa fa-file-text-o" aria-hidden="true"></i></div>
+    </div>
+    <div title="hide toolbar" class="label-wrapper" ng-click="$ctrl.hideToolbar()">
+        <div class="tab-label"><i class="fa fa-eye" aria-hidden="true"></i></div>
+    </div>
+    <div title="logout" class="label-wrapper" style="position:absolute;bottom: 0;left: 20px;" ng-click="$ctrl.logout()">
+        <div class="tab-label">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+        </div>
+    </div>
+</div>
+<div id="left-panel" ng-show="$ctrl.showConfig || $ctrl.selectedDevice">
+    <div ng-show="$ctrl.mode === 1">
+        <!--<div class="config-row open-title">
+            Map
+        </div>
+        <div class="config-row"><div class="config-label">scale</div><input type="text" ng-model="$ctrl.pixelsPerMeter" ng-model-options="{debounce:500}" ng-change="$ctrl.onScaleChanged()" /></div>
+        <div class="config-row"><div class="config-label">map</div><input type="file" id="map-file" /></div>
+        <div class="config-row"><div class="config-label">unit</div><select ng-model="$ctrl.unit" ng-change="$ctrl.onMeasurementChanged()"><option value="m">meters</option><option value="ft">feet</option></select></div>
+        <div class="config-row"><div >socket</div><input type="text" ng-model="$ctrl.socketAddress" ng-model-options="{updateOn:'blur'}" ng-change="$ctrl.onSocketAddressChanged()" style="width: 210px;" /></div>
+        <div class="config-row"><div class="config-label">auto scale</div><input type="checkbox" ng-model="$ctrl.autoScale" ng-change="$ctrl.onAutoScaleChanged()" /></div>
+        <div class="config-row"><div class="config-label">show zones</div><input type="checkbox" ng-model="$ctrl.showZones" /></div>-->
+        <div class="config-row open-title">
+            Sensor
+        </div>
+        <div class="config-row"><div class="config-label">sensor</div><select ng-options="unit.id as unit.name for unit in $ctrl.unitOptions" ng-model="$ctrl.unitId" ng-change="$ctrl.onUnitIdChanged()"></select></div>
+        <div class="config-row"><div class="config-label">rotation</div><input type="text" ng-model="$ctrl.currentAngle" ng-model-options="{debounce:500}" ng-change="$ctrl.onRotationChanged()" /><span class="measurement">degrees</span></div>
+        <div class="config-row"><div class="config-label">rotate step</div><input type="text" ng-model="$ctrl.degreeStep" ng-model-options="{debounce:500}"  /><span class="measurement">degrees</span></div>
+        <div class="config-row"><div class="config-label">scale step</div><input type="text" ng-model="$ctrl.scaleStep" ng-model-options="{debounce:500}"  /></div>
+        <div class="config-row"><div class="config-label">lock scale</div><input type="checkbox" ng-model="$ctrl.lockSensorScale" /></div>
+        <div class="config-row"><div class="config-label">lock rotation</div><input type="checkbox" ng-model="$ctrl.lockSensorRotate" /></div>
+        <div class="config-row open-title">
+            Key Bindings
+        </div>
+        <div style="position:relative;">
+            <img src="/images/ArrowKeys.png" style="width:100%;" />
+            <div class="scale-up">Scale</div>
+            <div class="scale-down">Scale</div>
+            <div class="rotate-left">Rotate</div>
+            <div class="rotate-right">Rotate</div>
+        </div>
+    </div>
+    <div ng-show="$ctrl.mode === 15">
+        <div class="config-row open-title">
+            Floorplan
+        </div>
+        <div class="config-row"><div class="config-label">map</div><input type="file" id="map-file" /></div>
+        <div class="config-row"><div class="config-label">unit</div><select ng-model="$ctrl.unit" ng-change="$ctrl.onMeasurementChanged()"><option value="m">meters</option><option value="ft">feet</option></select></div>
+        <!--<div class="config-row"><div class="config-label">auto scale</div><input type="checkbox" ng-model="$ctrl.autoScale" ng-change="$ctrl.onAutoScaleChanged()" /></div>-->
+        <div class="config-row"><div class="config-label">show zones</div><input type="checkbox" ng-model="$ctrl.showZones" /></div>
+    </div>
+    <div ng-show="$ctrl.mode === 2">
+        <div class="config-row open-title">
+            Boundary Properties
+        </div>
+        <div class="config-row"><div class="config-label">width</div><input type="text" ng-model="$ctrl.boundwidthMeasurement" ng-change="$ctrl.onBoundarySizeChanged()" ng-model-options={debounce:500} /> <span class="measurement">{{$ctrl.unit}}</span></div>
+        <div class="config-row"><div class="config-label">height</div><input type="text" ng-model="$ctrl.boundheightMeasurement" ng-change="$ctrl.onBoundarySizeChanged()" ng-model-options={debounce:500} /> <span class="measurement">{{$ctrl.unit}}</span></div>
+    </div>
+
+    <div ng-show="$ctrl.mode === 6">
+        <div class="config-row open-title">
+            Save Configuration
+        </div>
+        <div class="config-row"><div class="config-label">name</div><input type="text" ng-model="$ctrl.configName" /></div>
+        <div class="config-row" style="text-align:right"><button class="save-config-btn" ng-click="$ctrl.saveConfiguration()">save</button> <i class="fa fa-check-circle" aria-hidden="true" style="color:#1da362;" ng-if="$ctrl.showSaveSuccess"></i></div>
+    </div>
+    <div ng-show="$ctrl.mode === 7">
+        <div class="config-row open-title">
+            Load Configuration
+            <!--<div class="config-src-wrapper" ng-show="$ctrl.hasDatabase">
+                <select ng-model="$ctrl.configSource" ng-change="$ctrl.onConfigSourceChange()">
+                    <option value="browser">browser</option>
+                    <option value="file">file</option>
+                </select>
+            </div>-->
+        </div>
+        <div class="config-row open-row" ng-click="$ctrl.loadConfig(config)" ng-repeat="config in $ctrl.savedConfigurations">{{config.name}}<i class="fa fa-folder-open open-icon" aria-hidden="true"></i></div>
+    </div>
+    <div ng-show="$ctrl.mode === 0 && !$ctrl.currentZone">
+        <div class="config-row"><div class="config-label">name</div><input type="text" ng-model="$ctrl.selectedDevice.name" /></div>
+    </div>
+    <div ng-show="$ctrl.mode === 8">
+        <div class="config-row"><div class="config-label" style="width:60%;">measurement</div><input style="width:40%;" type="text" ng-model="$ctrl.ruler.measurement" ng-change="$ctrl.onRulerMeasurementChanged()" ng-model-options={debounce:500} /> <span class="measurement">{{$ctrl.unit}}</span></div>
+    </div>
+    <div ng-show="$ctrl.currentZone">
+        <div class="config-row open-title">
+            Zone Properties
+            <div class="config-src-wrapper">
+                <select ng-model="$ctrl.currentZone.style">
+                    <option value="light">light</option>
+                    <option value="dark">dark</option>
+                </select>
+            </div>
+        </div>
+        <div class="config-row"><div class="config-label">id</div><input type="text" ng-model="$ctrl.currentZone.id" ng-model-options={debounce:500} /></div>
+        <div class="config-row"><div class="config-label">name</div><input type="text" ng-model="$ctrl.currentZone.name" ng-model-options={debounce:500} /></div>
+        <div class="config-row"><div class="config-label">min dwell</div><input type="text" ng-model="$ctrl.currentZone.minDwell" ng-model-options={debounce:500} /></div>
+        <div class="config-row"><div class="config-label">min pop.</div><input type="text" ng-model="$ctrl.currentZone.minPopulation" ng-model-options={debounce:500} /></div>
+        <!--<div class="config-row">
+            <div><input type="checkbox" ng-model="$ctrl.currentZone.enterEvent" ng-model-options={debounce:500} /> Enter Event</div>
+        </div>
+        <div class="config-row">
+            <div><input type="checkbox" ng-model="$ctrl.currentZone.exitEvent" ng-model-options={debounce:500} /> Exit Event</div>
+        </div>-->
+        <!--<div class="config-row">
+            <div><input type="checkbox" ng-model="$ctrl.currentZone.dwellEvent" ng-model-options={debounce:500} /> Dwell Event</div>
+        </div>
+        <div class="config-row">
+            <div><input type="checkbox" ng-model="$ctrl.currentZone.popEvent" ng-model-options={debounce:500} /> Population Event</div>
+        </div>-->
+    </div>
+    
+</div>
+<div id="powerered-by" style="position:fixed;bottom: 0;right: -30px;color: #fff;z-index:5;">
+    <div style="display:inline-block;position:relative;"><span style="position:absolute;top: -18px;left: -70px;width:100px;font-size:0.8em;">powered by</span></div> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="100" height="30" viewBox="0 0 469.63 94.59" enable-background="new 0 0 469.634 94.594" xml:space="preserve"><rect x="16.67" y="34.34" fill="#FFFFFF" width="9.34" height="53.73"></rect><rect x="16.72" y="21.82" fill="#FFFFFF" width="9.23" height="8.03"></rect><polygon fill="#FFFFFF" points="256.92 0 255.25 0 252.26 3.37 260.21 3.37 "></polygon><rect y="34.34" fill="#1DA0DB" width="9.35" height="53.73"></rect><rect x="0.05" y="21.82" fill="#1DA0DB" width="9.23" height="8.03"></rect><polygon fill="#1DA0DB" points="272.47 13.71 296.47 13.71 293.93 10.86 269.68 10.86 "></polygon><polygon fill="#1DA0DB" points="282.57 24.06 282.57 24.06 305.67 24.06 303.13 21.2 279.78 21.2 "></polygon><polygon fill="#1DA0DB" points="277.52 18.89 301.08 18.89 298.52 16.03 274.73 16.03 "></polygon><polygon fill="#1DA0DB" points="267.43 8.54 291.88 8.54 289.46 5.67 268.42 5.61 266.19 3.4 287.27 3.37 284.29 0.01 259.1 0.01 "></polygon><polygon fill="#1DA0DB" points="277.58 29.24 301.26 29.24 303.81 26.37 280.34 26.37 "></polygon><polygon fill="#1DA0DB" points="257.62 49.95 282.96 49.95 285.41 47.07 264.19 47.07 266.58 44.76 287.45 44.76 289.89 42.07 269.08 42.04 271.56 39.54 292.06 39.59 294.6 36.73 270.36 36.73 "></polygon><polygon fill="#1DA0DB" points="272.58 34.41 296.66 34.41 299.2 31.55 275.35 31.55 "></polygon><polygon fill="#FFFFFF" points="265.42 16.03 241 16.03 238.46 18.9 262.79 18.9 "></polygon><polygon fill="#FFFFFF" points="260.68 21.2 236.41 21.2 233.86 24.06 258.05 24.06 "></polygon><polygon fill="#FFFFFF" points="254.13 47.07 256.05 49.32 258.22 47.07 "></polygon><polygon fill="#FFFFFF" points="268.21 36.73 244.93 36.73 247.48 39.59 265.44 39.59 "></polygon><path fill="#FFFFFF" d="M53.14 34.7c-4.94 0-8.91 1.01-11.82 3V35.29h-9.13v52.78h9.13V56.46c0-4.04 1.04-7.23 3.1-9.49 1.94-2.19 4.79-3.26 8.72-3.26 7.98 0 11.7 4.21 11.7 13.23V88.07h9.12V56.46c0-6.71-1.81-12.07-5.4-15.91C64.94 36.67 59.75 34.7 53.14 34.7"></path><rect x="119.12" y="34.34" fill="#FFFFFF" width="9.12" height="53.73"></rect><rect x="119.03" y="21.82" fill="#FFFFFF" width="9.23" height="8.03"></rect><path fill="#FFFFFF" d="M217.37 43.47c4.28 0 8.13 1.21 11.42 3.59 2.64 1.89 4.41 4.14 5.4 6.89h-33.43C203.85 46.9 209.29 43.47 217.37 43.47M244.52 60.69c0-7.7-2.64-14.07-7.83-18.93 -5.08-4.84-11.59-7.29-19.32-7.29 -7.84 0-14.43 2.62-19.6 7.8 -5.09 5.09-7.68 11.65-7.68 19.49 0 7.75 2.62 14.3 7.78 19.47 5.1 5.18 11.66 7.81 19.5 7.81 3.25 0 6.24-0.43 8.87-1.28 5.76-1.85 10.34-5.22 13.63-10.02l0.48-0.68h-12.3l-0.12 0.08c-0.83 0.6-1.66 1.07-2.46 1.41 -2.39 0.98-5.11 1.48-8.1 1.48 -5.77 0-10.33-1.74-13.55-5.17 -2.75-2.97-4.3-7.02-4.64-12h45.35V60.69z"></path><path fill="#FFFFFF" d="M108.43 60.47c-0.97-0.71-2.35-1.48-4.21-2.37 -1.77-0.85-4.05-1.76-6.82-2.74 -2.81-0.93-4.83-1.88-6.01-2.79 -1.21-0.99-1.79-2.21-1.79-3.74 0-0.34 0.04-0.95 0.04-0.95 0.11-1.54 0.8-2.47 0.8-2.47 0.47-0.71 1.44-1.7 3.37-2.28l0 0c0.26-0.08 1.35-0.36 3.12-0.21 0.12 0.01 0.23 0.02 0.35 0.04 0.08 0.01 0.14 0.01 0.21 0.01v0.02c0.33 0.04 0.66 0.08 1.03 0.15 0 0 5.04 1.04 7.33 5.08l0.16 0.16 6.78-5.88 -1.64-1.63c-4.16-4.16-9.29-6.27-15.26-6.27 -4.49 0-8.18 1.43-10.98 4.23 -2.94 2.75-4.44 6.13-4.44 10.02 0 4.49 1.53 8.03 4.55 10.47 1.93 1.58 4.89 3.07 9.07 4.58 2.08 0.78 3.86 1.46 5.27 2.03 0.68 0.27 1.28 0.54 1.78 0.77 0.53 0.27 1.66 0.88 2.49 1.88 0 0-0.01 0.01 0 0 1.07 1.25 1.61 2.6 1.61 4.1 0 5.07-2.66 7.23-8.88 7.23 -2.87 0-5.13-0.62-6.74-1.83 -0.8-0.57-1.58-1.32-2.33-2.23h-10.66l-0.07 0.04 1.01 1.82c4.15 7.51 10.47 11.33 18.79 11.33 4.88 0 9.14-1.52 12.67-4.5 3.54-3 5.33-6.99 5.33-11.86C114.36 67.6 112.37 63.5 108.43 60.47"></path><path fill="#FFFFFF" d="M158.97 80.69c-10.36 0-18.77-8.4-18.77-18.77 0-10.36 8.4-18.75 18.77-18.75 10.35 0 18.77 8.4 18.77 18.75C177.74 72.28 169.33 80.69 158.97 80.69M176.77 21.83v19.22c-5.04-4.29-10.96-6.46-17.56-6.46 -7.6 0-14.12 2.66-19.37 7.91 -5.17 5.17-7.79 11.64-7.79 19.25 0 7.6 2.66 14.12 7.91 19.36 5.16 5.18 11.64 7.8 19.25 7.8 6.75 0 12.65-2.14 17.56-6.36v5.54h9.12V21.83H176.77z"></path><polygon fill="#FFFFFF" points="245.55 10.92 243.05 13.71 267.53 13.71 268.87 12.25 267.56 10.92 "></polygon><polygon fill="#FFFFFF" points="240.46 31.7 242.87 34.41 267.34 34.41 264.85 31.7 "></polygon><polygon fill="#FFFFFF" points="262.55 29.19 259.97 26.37 235.72 26.37 238.23 29.19 "></polygon><polygon fill="#FFFFFF" points="250.14 5.75 247.78 8.4 265.12 8.4 262.52 5.75 "></polygon><polygon fill="#FFFFFF" points="249.53 41.89 251.98 44.66 260.55 44.66 263.21 41.89 "></polygon></svg>
+</div>

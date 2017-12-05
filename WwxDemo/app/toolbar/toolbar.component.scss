@@ -1,0 +1,53 @@
+﻿#left-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 34px;
+    background: rgba(62,62,66,.5);
+    height: 100%;
+    border-right: 1px solid #3f3f46;
+
+    .label-wrapper {
+        position: relative;
+        height: 40px;
+        border-bottom: 1px solid #3f3f37;
+        cursor: pointer;
+
+        &.selected {
+            border-left: 4px solid #ff7314;
+        }
+
+        .tab-label {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            color: #ffffff;
+            transform: translate(-50%);
+
+            img {
+                width: 24px;
+            }
+
+            #boundary-icon {
+                width: 14px;
+                height: 16px;
+                border: 2px solid #fff;
+            }
+
+            #door-icon {
+                width: 14px;
+                height: 14px;
+                border: 1px solid #fff;
+                border-top: 4px solid black;
+                border-bottom-left-radius: 14px;
+            }
+
+            #zone-icon{
+                padding:0 5px;
+                background:#151515;
+                border:1px solid #fff;
+                color:#fff;
+            }
+        }
+    }
+}

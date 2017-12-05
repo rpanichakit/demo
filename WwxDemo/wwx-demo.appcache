@@ -1,0 +1,27 @@
+﻿CACHE MANIFEST
+# v1.0.4 2017-09-27
+index.html
+app/app.js
+app/fonts/fontawesome-webfont.eot
+app/fonts/fontawesome-webfont.svg
+app/fonts/fontawesome-webfont.ttf
+app/fonts/fontawesome-webfont.woff
+app/fonts/fontawesome-webfont.woff2
+app/live-positions/live-positions.component.js
+app/styles/app.css
+app/styles/font-awesome.css.map
+app/styles/font-awesome.min.css
+images/chair.svg
+images/sensor.png
+images/ruler.png
+scripts/libs/angular-websocket.min.js
+scripts/libs/angular.min.js
+scripts/libs/jquery-ui.min.js
+scripts/libs/jquery.min.js
+scripts/libs/jquery.ui.rotatable.js
+
+FALLBACK:
+app/fonts/fontawesome-webfont.woff app/fonts/fontawesome-webfont.woff
+app/fonts/fontawesome-webfont.eot app/fonts/fontawesome-webfont.eot
+app/fonts/fontawesome-webfont.svg app/fonts/fontawesome-webfont.svg
+app/fonts/fontawesome-webfont.ttf app/fonts/fontawesome-webfont.ttf

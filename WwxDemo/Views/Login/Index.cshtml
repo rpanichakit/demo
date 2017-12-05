@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Microsoft Store Demo</title>
+    @Styles.Render("~/LoginCss")
+</head>
+<body>
+    <div class="login-body">
+        <div class="login-header">
+            <img src="/images/iinside_white_logo.png" />
+        </div>
+        <div class="form-sign-container container-fluid">
+            <div class="form-signin-wrapper">
+                <form novalidate class="form-signin signin-form" id="login-form" autocomplete="off">
+                    <div class="login-title"><i class="fa fa-lock"></i>Log in</div>
+                    <button class="btn btn-lg btn-primary btn-block btn-login" type="submit" id="sign-in-button">
+                        Sign in
+                    </button>
+                    <span class="clearfix"></span>
+                </form>
+            </div>
+        </div>
+        <div class="login-footer">
+            iinside &copy; 2016 (version 1.0)
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    document.getElementById('sign-in-button').onclick = function () {
+        window.location.href = '/authServices/SignIn';
+        return false;
+    }
+</script>
